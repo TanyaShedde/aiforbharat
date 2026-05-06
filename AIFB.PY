@@ -1,5 +1,3 @@
-import pandas as pd
-import numpy as np
 import random
 from langdetect import detect, DetectorFactory, LangDetectException # Correctly import LangDetectException
 from collections import defaultdict
@@ -50,6 +48,9 @@ KANNADA_DIALECT_KEYWORDS = {
 
 # --- Deliverable 1: Synthetic Dataset Generation (Code) ---
 def generate_synthetic_data(num_rows=200):
+    import pandas as pd
+    import numpy as np
+
     intents = list(RISK_SCORES.keys())
     languages = ['English', 'Kannada', 'Hindi', 'Hinglish', 'Code-Switched'] 
     kannada_dialects = list(KANNADA_DIALECT_KEYWORDS.keys()) + ['Standard Kannada'] # Add standard for variation
