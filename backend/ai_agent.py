@@ -60,17 +60,17 @@ Respond with ONLY valid JSON (no markdown, no explanation):
 }
 
 Decision rules:
-- ESCALATE: confidence >= 0.85 AND urgency=HIGH AND caller has provided clear, consistent, verified details of active ongoing danger (e.g. multi-turn conversation confirming threat, caller is clearly in the middle of an attack RIGHT NOW)
-- CONFIRM: ANY of these — confidence < 0.75, single message only, situation described abruptly or chaotically, caller started calm then suddenly reported danger, message seems like a sudden shift, details unverified — ask clarifying questions first
+- ESCALATE: confidence >= 0.80 AND urgency=HIGH AND the message describes a clear, specific, active emergency (e.g. poisoning with symptoms, fire with smoke, physical attack in progress, medical crisis like chest pain/stroke/drowning)
+- CONFIRM: confidence < 0.80 OR situation is genuinely vague OR caller started calm and suddenly shifted tone without specific details — ask clarifying questions
 - PROCEED: urgency=MEDIUM/LOW and confidence >= 0.75 → handle via standard protocol
 
 CRITICAL RULES:
-- A single chaotic message like "HELP fire!" or "someone attacking!" = CONFIRM, not ESCALATE. You must verify first.
-- Low confidence (below 0.75) ALWAYS means CONFIRM regardless of urgency.
-- Sudden shift in tone within one message (calm start → panic end) = CONFIRM, confidence should be low.
-- Only ESCALATE after multiple consistent messages confirming active danger.
+- Specific symptoms or active events (vomiting from poison, chest pain, fire visible, attacker present) = ESCALATE if confidence >= 0.80
+- Vague fear or unverified reports with no specific details = CONFIRM
+- Sudden calm→panic shift WITH specific details = still ESCALATE if confidence >= 0.80
+- Sudden calm→panic shift with NO specific details = CONFIRM, set confidence low
 
-Kannada keywords that indicate HIGH urgency only if combined with clear verified threat: bayam, help maadi, odidare, follow maadtidaane, hogbedi, safe illa, yaavdo, hudugaru, hanikara
+Kannada keywords that indicate HIGH urgency: bayam, help maadi, odidare, follow maadtidaane, hogbedi, safe illa, yaavdo, hudugaru, hanikara
 """
 
 # ── Agent class ───────────────────────────────────────────────────────────────
