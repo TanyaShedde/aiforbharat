@@ -377,6 +377,7 @@ export default function App() {
             <span className="calllog-title"><Clock size={14} /> CALL LOG</span>
             <span className="calllog-count">{callLog.length} records</span>
           </div>
+          <div className="calllog-table-wrap">
           <table className="calllog-table">
             <thead>
               <tr><th>TIME</th><th>DURATION</th><th>INTENT</th><th>CONFIDENCE</th><th>DECISION</th></tr>
@@ -395,6 +396,7 @@ export default function App() {
               ))}
             </tbody>
           </table>
+          </div>
           {callLog.length === 0 && (
             <div style={{textAlign:"center",padding:"1.5rem",color:"rgba(255,255,255,0.3)",fontSize:"0.8rem"}}>
               No calls logged yet — simulate a call above

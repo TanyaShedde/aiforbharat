@@ -229,7 +229,14 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text); over
 .calllog-section {
   flex-shrink: 0; margin: 0 20px 14px; background: var(--surface2);
   border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+  max-height: 260px; display: flex; flex-direction: column;
 }
+.calllog-table-wrap {
+  overflow-y: auto; flex: 1;
+}
+.calllog-table-wrap::-webkit-scrollbar { width: 4px; }
+.calllog-table-wrap::-webkit-scrollbar-track { background: transparent; }
+.calllog-table-wrap::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 .calllog-header {
   display: flex; align-items: center; justify-content: space-between;
   padding: 10px 18px; border-bottom: 1px solid var(--border);
@@ -241,6 +248,7 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text); over
 .calllog-table thead th {
   padding:8px 18px; text-align:left; font-family:var(--mono); font-size:0.58rem;
   letter-spacing:0.1em; color:var(--dim); border-bottom:1px solid var(--border); font-weight:400;
+  position: sticky; top: 0; background: var(--surface2); z-index: 1;
 }
 .calllog-table tbody tr { border-bottom:1px solid var(--border); transition:background 0.12s; }
 .calllog-table tbody tr:last-child { border-bottom:none; }
