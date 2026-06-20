@@ -1,4 +1,4 @@
-# SPASHT AI: Data Intelligence Layer
+# SPASHT AI
 While this repository contains the full collaborative project, my primary focus was on engineering the **Data Intelligence Layer**, which allows the AI to accurately route emergency distress calls based on urgency and risk.
 
 ##  My Contributions
